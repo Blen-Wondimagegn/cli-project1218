@@ -45,20 +45,12 @@ def self.get_rock_type
     r_url ="https://www.amnh.org/exhibitions/permanent/planet-earth/how-do-we-read-the-rocks/three-types/"+ rock_name.split(' ')[0] 
     r_page =  Nokogiri::HTML(open(r_url))
     rock_example = r_page.css("h2.pt-2").text.strip
+    rock_definition = r_page.css(".amnh-content p").text.strip 
     
-    
-    
-    Rock.new(rock_name,rock_decription,rock_example)
+    Rock.new(rock_name,rock_decription,rock_example,rock_definition)
       end
     end  
-
-    #get_rocks_example
-
-  # def get_rocks_example_sed
-  #   
-    
-  # end 
-      
+  
     
   
 

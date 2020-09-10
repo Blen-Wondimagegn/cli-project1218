@@ -10,12 +10,13 @@ class Cli
         puts "Welcome to Geology database for rocks!"
         puts"Please choose your rock type"
         Scraper.get_rock_type
-        # Scraper.get_rock_decription
         list_rocks 
-        puts "Here is a brief decription"
+        puts "Here is a brief decription about the rock you chose"
         list_rocks_decription 
         puts"Here is some example"
         list_rocks_example
+        puts"Here is definition"
+        list_rock_definition
         
     end 
     
@@ -24,7 +25,9 @@ class Cli
             puts "#{i}. #{rock.rock_name}"
         end
     end
-    def list_rocks_decription  
+
+
+        def list_rocks_decription  
         Rock.all.each.with_index(1) do | rock, i |
             puts "#{i}. #{rock.rock_decription}"
         end
@@ -35,5 +38,16 @@ class Cli
             puts "#{i}. #{rock.rock_example}"
         end
      end
+
+    def list_rock_definition
+        Rock.all.each.with_index(1) do | rock, i |
+            puts "#{i}. #{rock.rock_definition}"
+        end
+     end
 end 
+
+
+
+
+
 

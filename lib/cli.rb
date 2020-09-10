@@ -8,15 +8,16 @@ class Cli
 
     def call
         puts "**************************************"
-        puts "Welcome to Geology database for rocks!"
+        puts "Welcome to Geology Database For Rocks!"
         puts "**************************************"
-        puts ""
-        puts"Please select a number to get rock type"
+        puts ""  
         Scraper.get_rock_type
-        # Scraper.get_details
-        list_rocks_type 
+        list_rock_type 
+        display_rock_decription   
+        puts "Please pick a number for a rock type"
+        menu 
         # puts "Here is a brief decription about the rock you chose"
-    #     display_rocks_decription  
+        
     #     # puts"Here is some example"
     #    display_rocks_example
     #     # puts"Here is definition"
@@ -24,52 +25,48 @@ class Cli
         
     end 
     
-    def list_rocks_type
+    def list_rock_type
         Rock.all.each.with_index(1) do | rock, i |
             puts "#{i}. #{rock.rock_name}"
         end
     end
+ 
 
+    def display_rock_decription 
+            Rock.all.each do | rock|
+                puts "#{rock.rock_decription}"
+            end
+        end
 
-   def display_rocks_example
+   def display_rock_example
         Rock.all.each.with_index(1) do | rock, i |
             puts "#{i}. #{rock.rock_example}"
         end
      end
 
-    def display_rocks_property 
+    def display_rock_property 
         Rock.all.each.with_index(1) do | rock, i |
             puts "#{i}. #{rock.rock_property}"
         end
      end
 
     def menu
-
-        # puts "Please select a number to get the details."
-        # input = gets.chomp
-        #  if !input.to_i.between?(1, Rock.all.count)
-        #     puts "Character not found. Please select a different character!"
-        #    list_rock_type
-        #     menu
-        # else
-        #     rock= Rock.all[input.to_i-1]
-        #     display_character_details(rock)
-        # end
-
-  while user_input = gets.chomp # loop while getting user input
-  case user_input
-  when "1"
-    puts "First response"
-    break # make sure to break so you don't ask again
-  when "2"
-    puts "Second response"
-    break # and again
-  else
-    puts "Please select either 1 or 2"
-    print prompt # print the prompt, so the user knows to re-enter input
-  end
-end
-    end 
+        input = 0
+        until ![1,2,3].include? input do 
+         puts "Please enter a number 1 or a 3.>" 
+         puts "1."
+        input = gets.chomp.to_i
+        end
+        if input == 1    
+            puts ""
+        elsif input == 2  
+            puts "Second response."
+        elsif input == 3 
+            puts "thrid"
+        else
+            puts"error"
+        end         
+ end 
 end 
 
 

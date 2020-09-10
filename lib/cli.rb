@@ -1,12 +1,39 @@
 class Cli
-    def hello
-    site = "https://www.amnh.org/exhibitions/permanent/planet-earth/how-do-we-read-the-rocks/three-types"
-    page =  Nokogiri::HTML(open(site))
-    results = page.css("span.amnh-tile__content")
-    puts results.count
-    results.each do |r|
-    puts r.css("span.amnh-tile__description").text.strip
+
+  #list_rock_type
+  #menu 
+      #ask user to choose type of rock from number list 
+      #ask user to choose if they would like example (y/n) if yes display if no exit 
+ #list_rock_example 
+
+    def call
+        puts "Welcome to Geology database for rocks!"
+        puts"Please choose your rock type"
+        Scraper.get_rock_type
+        # Scraper.get_rock_decription
+        list_rocks 
+        puts "Here is a brief decription"
+        list_rocks_decription 
+        puts"Here is some example"
+        list_rocks_example
+        
+    end 
+    
+    def list_rocks 
+        Rock.all.each.with_index(1) do | rock, i |
+            puts "#{i}. #{rock.rock_name}"
+        end
     end
-  end 
+    def list_rocks_decription  
+        Rock.all.each.with_index(1) do | rock, i |
+            puts "#{i}. #{rock.rock_decription}"
+        end
+    end
+
+   def list_rocks_example
+        Rock.all.each.with_index(1) do | rock, i |
+            puts "#{i}. #{rock.rock_example}"
+        end
+     end
 end 
 

@@ -6,5 +6,5 @@ require 'nokogiri'
 require_relative '../lib/scraper'
 require_relative '../lib/rock'
 require_relative '../lib/cli'
-#  Scraper.new.get_rock_type 
+
 Cli.new.call 

@@ -7,16 +7,20 @@ class Cli
  #list_rock_example 
 
     def call
+        puts "**************************************"
         puts "Welcome to Geology database for rocks!"
-        puts"Please select a number between 1-3 to get rock type"
+        puts "**************************************"
+        puts ""
+        puts"Please select a number to get rock type"
         Scraper.get_rock_type
+        # Scraper.get_details
         list_rocks_type 
         # puts "Here is a brief decription about the rock you chose"
-        # list_rocks_decription 
-        # puts"Here is some example"
-        # list_rocks_example
-        # puts"Here is definition"
-        # list_rocks_property 
+    #     display_rocks_decription  
+    #     # puts"Here is some example"
+    #    display_rocks_example
+    #     # puts"Here is definition"
+    #     display_rocks_property 
         
     end 
     
@@ -27,12 +31,6 @@ class Cli
     end
 
 
-        def display_rocks_decription  
-        Rock.all.each.with_index(1) do | rock, i |
-            puts "#{i}. #{rock.rock_decription}"
-        end
-    end
-
    def display_rocks_example
         Rock.all.each.with_index(1) do | rock, i |
             puts "#{i}. #{rock.rock_example}"
@@ -41,25 +39,23 @@ class Cli
 
     def display_rocks_property 
         Rock.all.each.with_index(1) do | rock, i |
-            puts "#{i}. #{rock.rock_property }"
+            puts "#{i}. #{rock.rock_property}"
         end
      end
 
     def menu
-        puts "Please select a number between 1-3 to get the details."
-        input = gets.chomp 
-        
-        if !input.to_i.between?(1, Rock.all.count)
-                puts "Please select a valid number!"
-                list_rock_type
-                menu
+
+        puts "Please select a number to get the details."
+        input = gets.chomp
+         if !input.to_i.between?(1, Rock.all.count)
+            puts "Character not found. Please select a different character!"
+           list_rock_type
+            menu
         else
-            rock = Rock.all[input.to_i-1]
-            list_rocks_decription(rock)
-            # list_rocks_example
-            # list_rocks_property
-            end 
-        end 
+            rock= Rock.all[input.to_i-1]
+            display_character_details(rock)
+        end
+    end 
 end 
 
 

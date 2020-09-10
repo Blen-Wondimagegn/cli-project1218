@@ -45,16 +45,30 @@ class Cli
 
     def menu
 
-        puts "Please select a number to get the details."
-        input = gets.chomp
-         if !input.to_i.between?(1, Rock.all.count)
-            puts "Character not found. Please select a different character!"
-           list_rock_type
-            menu
-        else
-            rock= Rock.all[input.to_i-1]
-            display_character_details(rock)
-        end
+        # puts "Please select a number to get the details."
+        # input = gets.chomp
+        #  if !input.to_i.between?(1, Rock.all.count)
+        #     puts "Character not found. Please select a different character!"
+        #    list_rock_type
+        #     menu
+        # else
+        #     rock= Rock.all[input.to_i-1]
+        #     display_character_details(rock)
+        # end
+
+  while user_input = gets.chomp # loop while getting user input
+  case user_input
+  when "1"
+    puts "First response"
+    break # make sure to break so you don't ask again
+  when "2"
+    puts "Second response"
+    break # and again
+  else
+    puts "Please select either 1 or 2"
+    print prompt # print the prompt, so the user knows to re-enter input
+  end
+end
     end 
 end 
 

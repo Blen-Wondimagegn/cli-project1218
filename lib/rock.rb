@@ -7,7 +7,7 @@ class Rock
         @rock_name = rock_name
         @rock_decription = rock_decription 
         @rock_example = rock_example
-        @rock_property = rock_property 
+        @rock_= rock_property 
         @@all << self
     end
 

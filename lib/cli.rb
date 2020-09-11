@@ -50,40 +50,18 @@ class Cli
 
     def menu
      
-        
-    #  puts "Would you like to see more detalis (y/n):"
-     input = gets.chomp
-    while input != "exit" || !input.to_i.between?(1, Character.all.count) do 
-      
+    
+    while !input.to_i.between?(1, Rock.all.count) do 
+       input = gets.chomp
          if input == 1
-              puts "Would you like to see more detalis (y/n):"
-                input = gets.strip.downcase
-                until (input == "n") do
-                    puts "h,mmmm"
-                end 
-        
-        # input = 0
-        # while input != "exit"  
-        # input = gets.chomp_to_i
-        # #    puts "Invalid input, Please pick a number for a rock propertiy"
-        # list_rock_type 
-        # menu 
-        #     case input 
-        #     when 1 
-        #     puts "1"
-        #     when 2
-        #     puts "2"
-        #     when 3 
-        #     puts "3"
-        #     else
-        #     "error"
-        #     end
-        # end  
-    else input == 2 
-        puts"exiting"  
+           puts "Would you like to see more detalis (y/n):"
+            #     input = gets.strip.downcase
+            #     until (input == "n") do
+            #         puts "h,mmmm" 
+            #  end 
+            end 
       end 
-   end 
- end 
+   end  
 end 
 
 

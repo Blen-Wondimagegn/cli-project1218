@@ -16,7 +16,6 @@ def self.get_rock_type
     r_page =  Nokogiri::HTML(open(r_url))
     rock_example = r_page.css("h2.pt-2").text.strip
     rock_property = r_page.css(".amnh-content p").text.strip
-    puts rock_property 
     
     Rock.new(rock_name,rock_decription,rock_example,rock_property)
       end

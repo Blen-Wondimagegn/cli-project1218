@@ -17,7 +17,7 @@ class Cli
         puts "Please pick a rock type for more details :"
         Scraper.get_rock_type
         list_rock_type 
-        display_rock_property
+        # display_rock_property
         menu 
     end 
     def list_rock_type
@@ -37,27 +37,15 @@ class Cli
             puts "#{i}. #{rock.rock_example}"
         end
      end
-  
-     def display_rock_property
-        Rock.all.each do | rock, i |
-            puts "#{i}. #{rock.rock_property}"
-        end
-     end
-
     
-
-    
-
 
     def menu
-
         input = gets.chomp
         if input.to_i.between?(1, Rock.all.count)
             puts "What information would you like to find out:" 
             puts "Enter 1 for breif description"
             puts "Enter 2 for examples"
-            puts "Enter 3 for properties"
-            
+            puts "Enter 3 for properties"   
             input = gets.to_i 
             if input == 1 
             rock = Rock.all[input.to_i-1]
@@ -66,15 +54,13 @@ class Cli
             rock = Rock.all[input.to_i-1]
             display_rock_example
             else input == 3
-            # rock = Rock.all[input.to_i-1]
-            # display_rock_property
+            rock = Rock.all[input.to_i-1]
+            display_rock_property
             end 
-            
         else !input.to_i.between?(1, Rock.all.count) 
             puts "Rock type not found, Please pick a rock type for more details" 
             list_rock_type
-            menu 
-           
+            menu   
       end 
    end  
 end 

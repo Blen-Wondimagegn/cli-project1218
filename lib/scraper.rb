@@ -9,11 +9,9 @@ ROCK_URL= "https://www.amnh.org/exhibitions/permanent/planet-earth/how-do-we-rea
       results = page.css("span.amnh-tile__content")
       results.each do |rock|
       rock_name = rock.css("span.amnh-tile__title").text.strip
-      #  rock_n = rock_name.split 
-      #  puts rock_n
-      # rock_n.each do |r|
-      #   puts r
-      # end
+      # rock.css("span.amnh-tile__title").text.strip.each do |r|
+      #   binding.pry 
+      #    r.split
       rock_decription = rock.css("span.amnh-tile__description").text.strip
       r_url ="https://www.amnh.org/exhibitions/permanent/planet-earth/how-do-we-read-the-rocks/three-types/"+ rock_name.split(' ')[0] 
       r_page =  Nokogiri::HTML(open(r_url))

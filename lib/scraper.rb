@@ -10,7 +10,6 @@ ROCK_URL= "https://www.amnh.org/exhibitions/permanent/planet-earth/how-do-we-rea
       r_page =  Nokogiri::HTML(open(r_url))
       rock_example = r_page.css("h2.pt-2").text.gsub("\n                            "," ").gsub("\n                     ", " ").gsub(" "," ").split(' ').join(', ')
       rock_property = r_page.css(".amnh-content p").text
-      # binding.pry 
       Rock.new(rock_name,rock_decription,rock_example,rock_property)
         end
       end

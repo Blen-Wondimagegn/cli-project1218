@@ -1,6 +1,6 @@
 class Rock
     @@all = []
-    attr_accessor :rock_name, :rock_decription, :rock_example, :rock_property 
+    attr_reader :rock_name, :rock_decription, :rock_example, :rock_property 
     def initialize(rock_name,rock_decription,rock_example,rock_property)
         @rock_name = rock_name
         @rock_decription = rock_decription 
@@ -12,3 +12,4 @@ class Rock
         @@all
     end 
 end 
+

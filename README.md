@@ -2,7 +2,7 @@
 
 ## Cli-Project
 
-Contains a min database for all the diffrent rock types and their properties.
+Contains database for the diffrent rock types and their properties.
 
 ### Installing
 

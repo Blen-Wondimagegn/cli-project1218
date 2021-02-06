@@ -1,4 +1,4 @@
-# Three Rock Type
+# Three Types of Rock
 
 ## Cli-Project
 
